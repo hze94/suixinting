@@ -47,7 +47,7 @@ public class MainActivity extends FragmentActivity implements TabListener {
         setContentView(R.layout.activity_main);
 
         setUpActionBar();
-        setUpViewPager();
+//        setUpViewPager();
         setUpTabs();
 
 //        text = (TextView) findViewById(R.id.text);

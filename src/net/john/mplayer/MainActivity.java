@@ -2,44 +2,30 @@ package net.john.mplayer;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.ActionBar.TabListener;
-import android.app.FragmentTransaction;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewConfiguration;
-import android.widget.TextView;
 
-import com.example.musicplayer.R;
-
-import net.john.mplayer.fragment.Fragment1;
-import net.john.mplayer.fragment.Fragment2;
-import net.john.mplayer.fragment.Fragment3;
+import net.john.mplayer.tabs.MyTabListener;
+import net.john.mplayer.viewpager.MyOnPageChangeListener;
+import net.john.mplayer.viewpager.MyPagerAdapter;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends FragmentActivity implements TabListener {
+public class MainActivity extends Activity {
 
-    private ActionBar        actionBar;
-//    private TextView         text;
+    private ActionBar        mActionBar;
     private ViewPager        mViewPager;
-    private ViewPagerAdapter mViewPagerAdapter;
-
-    private Fragment1        mFragment1      = new Fragment1();
-    private Fragment2        mFragment2      = new Fragment2();
-    private Fragment3        mFragment3      = new Fragment3();
-
-    private static final int TAB_INDEX_COUNT = 3;
-
-    private static final int TAB_INDEX_ONE   = 0;
-    private static final int TAB_INDEX_TWO   = 1;
-    private static final int TAB_INDEX_THREE = 2;
+    MyPagerAdapter mTabPagerAdapter;
+    List<View> mTabPagerList = new ArrayList<View>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +33,8 @@ public class MainActivity extends FragmentActivity implements TabListener {
         setContentView(R.layout.activity_main);
 
         setUpActionBar();
-//        setUpViewPager();
+        setUpViewPager();
         setUpTabs();
-
-//        text = (TextView) findViewById(R.id.text);
         getOverflowMenu();
     }
 
@@ -58,55 +42,38 @@ public class MainActivity extends FragmentActivity implements TabListener {
      * 创建动作栏
      */
     private void setUpActionBar() {
-        actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        mActionBar = getActionBar();
+        mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
     }
 
     /**
      * 创建动作栏的tab
      */
     private void setUpTabs() {
-        actionBar = getActionBar();
-        Tab[] tabs = new Tab[3];
+        MyTabListener mtabListener = new MyTabListener(mViewPager,mTabPagerList);
+//        mActionBar = getActionBar();
         String[] tabName = { "本地音乐", "我的最爱", "最近播放" };
-        for (int i = 0; i < tabs.length; i++) {
-            tabs[i] = actionBar.newTab();
-            tabs[i].setText(tabName[i]);
-            tabs[i].setTabListener(this);
-            actionBar.addTab(tabs[i], false);
+        for (int i = 0; i < 3; i++) {
+            Tab tab = mActionBar.newTab();
+            tab.setText(tabName[i]);
+            tab.setTabListener(mtabListener);
+            mActionBar.addTab(tab, false);
         }
     }
 
     private void setUpViewPager() {
-        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mViewPager.setAdapter(mViewPagerAdapter);
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                actionBar = getActionBar();
-                actionBar.setSelectedNavigationItem(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                switch (state) {
-                    case ViewPager.SCROLL_STATE_IDLE:
-                        // TODO
-                        break;
-                    case ViewPager.SCROLL_STATE_DRAGGING:
-                        // TODO
-                        break;
-                    case ViewPager.SCROLL_STATE_SETTLING:
-                        // TODO
-                        break;
-                    default:
-                        // TODO
-                        break;
-                }
-            }
-        });
+        //获取ViewPager
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        
+        LayoutInflater mInflater = getLayoutInflater();
+        mTabPagerList.add(mInflater.inflate(R.layout.lay1, null));
+        mTabPagerList.add(mInflater.inflate(R.layout.lay2, null));
+        mTabPagerList.add(mInflater.inflate(R.layout.lay3, null));
+        
+        //初始化mAdapter
+        mViewPager.setAdapter(new MyPagerAdapter(mTabPagerList));
+        mViewPager.setCurrentItem(0);
+        mViewPager.setOnPageChangeListener(new MyOnPageChangeListener(mActionBar));
     }
 
     @Override
@@ -146,60 +113,4 @@ public class MainActivity extends FragmentActivity implements TabListener {
         }
     }
 
-    @Override
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
-
-    }
-
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
-
-        public ViewPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case TAB_INDEX_ONE:
-                    return mFragment1;
-                case TAB_INDEX_TWO:
-                    return mFragment2;
-                case TAB_INDEX_THREE:
-                    return mFragment3;
-            }
-            throw new IllegalStateException("No fragment at position " + position);
-        }
-
-        @Override
-        public int getCount() {
-            return TAB_INDEX_COUNT;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            String tabLabel = null;
-            switch (position) {
-                case TAB_INDEX_ONE:
-                    tabLabel = getString(R.string.tab_local_music);
-                    break;
-                case TAB_INDEX_TWO:
-                    tabLabel = getString(R.string.tab_my_favorite);
-                    break;
-                case TAB_INDEX_THREE:
-                    tabLabel = getString(R.string.tab_recently_play);
-                    break;
-            }
-            return tabLabel;
-        }
-    }
 }

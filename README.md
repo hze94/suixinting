@@ -10,5 +10,5 @@
 
 ###进度报告：
 
-- start~2014.11.2:actionbar自定义，actionbarTab自定义，tab间点击切换
-- ...
+- 2014-11-2 : actionbar自定义，actionbarTab自定义，tab间点击切换
+- 2014-11-10: actionbarTab 滑动

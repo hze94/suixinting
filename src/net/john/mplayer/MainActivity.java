@@ -3,6 +3,7 @@ package net.john.mplayer;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -24,8 +25,9 @@ public class MainActivity extends Activity {
 
     private ActionBar        mActionBar;
     private ViewPager        mViewPager;
-    MyPagerAdapter mTabPagerAdapter;
-    List<View> mTabPagerList = new ArrayList<View>();
+    private List<View> mTabPagerList = new ArrayList<View>();
+    private View favouriteMusicFragment,localMusicFragment
+    ,recentPlayFragment,playColumnFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         setUpActionBar();
+        setUpFragment();
         setUpViewPager();
         setUpTabs();
         getOverflowMenu();
@@ -46,6 +49,18 @@ public class MainActivity extends Activity {
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
     }
 
+    /**
+     * 创建fragment
+     * 本地音乐,我的最爱,最近播放三个条目
+     */
+    private void setUpFragment(){
+        LayoutInflater mInflater = getLayoutInflater();
+        favouriteMusicFragment = mInflater.inflate(R.layout.fragment_favourite_music, null);
+        localMusicFragment = mInflater.inflate(R.layout.fragment_local_music, null);
+        recentPlayFragment = mInflater.inflate(R.layout.fragment_recent_play, null);
+    }
+    
+    
     /**
      * 创建动作栏的tab
      */
@@ -65,10 +80,9 @@ public class MainActivity extends Activity {
         //获取ViewPager
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         
-        LayoutInflater mInflater = getLayoutInflater();
-        mTabPagerList.add(mInflater.inflate(R.layout.lay1, null));
-        mTabPagerList.add(mInflater.inflate(R.layout.lay2, null));
-        mTabPagerList.add(mInflater.inflate(R.layout.lay3, null));
+        mTabPagerList.add(localMusicFragment);
+        mTabPagerList.add(favouriteMusicFragment);
+        mTabPagerList.add(recentPlayFragment);
         
         //初始化mAdapter
         mViewPager.setAdapter(new MyPagerAdapter(mTabPagerList));

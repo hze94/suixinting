@@ -26,18 +26,27 @@ public final class R {
     public static final class drawable {
         public static final int actionbar_background=0x7f020000;
         public static final int actionbar_tab_indicator=0x7f020001;
-        public static final int ic_action_search=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int tab_selected_pressed=0x7f020004;
-        public static final int tab_selected_unpressed=0x7f020005;
-        public static final int tab_unselected_pressed=0x7f020006;
-        public static final int tab_unselected_unpressed=0x7f020007;
+        public static final int back=0x7f020002;
+        public static final int forward=0x7f020003;
+        public static final int ic_action_search=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int play=0x7f020006;
+        public static final int tab_selected_pressed=0x7f020007;
+        public static final int tab_selected_unpressed=0x7f020008;
+        public static final int tab_unselected_pressed=0x7f020009;
+        public static final int tab_unselected_unpressed=0x7f02000a;
     }
     public static final class id {
-        public static final int action_search=0x7f090003;
-        public static final int action_settings=0x7f090002;
-        public static final int local_music_list=0x7f090001;
-        public static final int viewpager=0x7f090000;
+        public static final int action_search=0x7f090009;
+        public static final int action_settings=0x7f090008;
+        public static final int back=0x7f090003;
+        public static final int forward=0x7f090001;
+        public static final int local_music_list=0x7f090007;
+        public static final int play=0x7f090002;
+        public static final int play_column=0x7f090000;
+        public static final int singerName=0x7f090005;
+        public static final int songName=0x7f090004;
+        public static final int viewpager=0x7f090006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

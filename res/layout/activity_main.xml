@@ -7,49 +7,53 @@
      <RelativeLayout
         android:id="@+id/play_column"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="#D46F1F"
         android:layout_alignParentBottom="true">
         
          <Button
             android:id="@+id/forward"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:background="@drawable/forward"/>
-        
+            android:background="@drawable/ic_action_next"/>
+         
         <Button
             android:id="@+id/play"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="match_parent"
             android:layout_toLeftOf="@id/forward"
-            android:background="@drawable/play"/>
+            android:background="@drawable/ic_action_play_over_video"/>
 
         <Button
             android:id="@+id/back"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:layout_toLeftOf="@id/play"
-            android:background="@drawable/back" />
+            android:background="@drawable/ic_action_previous" />
         
+
         <TextView 
             android:id="@+id/songName"
-            android:layout_height="50dp"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:paddingLeft="7dp"
-            android:textSize="20sp"
+            android:textSize="30sp"
+            android:textColor="#fff"
             android:text="泡沫"
             />
         
-        <TextView 
+        <TextView
             android:id="@+id/singerName"
-            android:layout_height="50dp"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_toRightOf="@id/songName"
             android:gravity="center|bottom"
             android:paddingBottom="15dp"
             android:paddingLeft='5dp'
+            android:textColor="#fff"
+            android:textSize="15sp"
             android:text="邓紫棋"
             />
         

@@ -14,5 +14,6 @@
 - 2014-11-10: actionbarTab 滑动
 - 2014-11-21: 播放栏常驻底部
 - 2014-12-02: 完成列表项的定义和ListFragment适配器
+- 2014-12-03: 使用FragmentPagerAdapter代替PagerAdapter重构代码
 
 ...

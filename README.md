@@ -13,5 +13,6 @@
 - 2014-11-2 : actionbar自定义，actionbarTab自定义，tab间点击切换
 - 2014-11-10: actionbarTab 滑动
 - 2014-11-21: 播放栏常驻底部
+- 2014-12-02: 完成列表项的定义和ListFragment适配器
 
 ...

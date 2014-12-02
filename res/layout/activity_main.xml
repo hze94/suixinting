@@ -3,27 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    
-     <RelativeLayout
+    <RelativeLayout
         android:id="@+id/play_column"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#D46F1F"
-        android:layout_alignParentBottom="true">
-        
-         <Button
+        android:layout_alignParentBottom="true"
+        android:background="#D46F1F" >
+
+        <!-- 播放，上一曲，下一曲按钮 -->
+        <Button
             android:id="@+id/forward"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:background="@drawable/ic_action_next"/>
-         
+            android:background="@drawable/ic_action_next" />
+
         <Button
             android:id="@+id/play"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toLeftOf="@id/forward"
-            android:background="@drawable/ic_action_play_over_video"/>
+            android:background="@drawable/ic_action_play_over_video" />
 
         <Button
             android:id="@+id/back"
@@ -31,41 +31,39 @@
             android:layout_height="match_parent"
             android:layout_toLeftOf="@id/play"
             android:background="@drawable/ic_action_previous" />
-        
 
-        <TextView 
+        <!-- 歌名TextView -->
+        <TextView
             android:id="@+id/songName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:paddingLeft="7dp"
-            android:textSize="30sp"
-            android:textColor="#fff"
             android:text="泡沫"
-            />
-        
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+        <!-- 歌手名TextView -->
         <TextView
             android:id="@+id/singerName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/songName"
             android:gravity="center|bottom"
-            android:paddingBottom="15dp"
-            android:paddingLeft='5dp'
-            android:textColor="#fff"
-            android:textSize="15sp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="5dp"
             android:text="邓紫棋"
-            />
-        
+            android:textColor="#fff"
+            android:textSize="15sp" />
     </RelativeLayout>
-    
+
+    <!-- ViewPager -->
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/play_column" 
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    
-    
+        android:layout_height="match_parent"
+        android:layout_above="@id/play_column"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
 </RelativeLayout>

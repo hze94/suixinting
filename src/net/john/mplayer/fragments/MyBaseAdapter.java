@@ -14,22 +14,23 @@ import java.util.ArrayList;
 
 /**
  * 适配列表项
+ * 
  * @author john
- *
+ * 
  */
 public class MyBaseAdapter extends BaseAdapter {
 
-    private LayoutInflater mInflater;
-    private ArrayList<Audio> songs = new ArrayList<>();
-    
-    public MyBaseAdapter(Context context,ArrayList<Audio> songs) {
+    private LayoutInflater   mInflater;
+    private ArrayList<Audio> audios = new ArrayList<>();
+
+    public MyBaseAdapter(Context context, ArrayList<Audio> songs) {
         mInflater = LayoutInflater.from(context);
-        this.songs = songs;
+        this.audios = songs;
     }
 
     @Override
     public int getCount() {
-        return songs.size();
+        return audios.size();
     }
 
     @Override
@@ -51,23 +52,24 @@ public class MyBaseAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.local_music_list_item, null);
             holder = new ViewHolder();
-            holder.title = (TextView)convertView.findViewById(R.id.songName);
-            holder.artist = (TextView)convertView.findViewById(R.id.singer);
+            holder.title = (TextView) convertView.findViewById(R.id.title);
+            holder.artist = (TextView) convertView.findViewById(R.id.artist);
             convertView.setTag(holder);
-        }else {
-            holder = (ViewHolder)convertView.getTag();
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
-        holder.title.setText(songs.get(position).getTitle());
-        holder.artist.setText(songs.get(position).getArtist());
+        holder.title.setText(audios.get(position).getTitle());
+        holder.artist.setText(audios.get(position).getArtist());
         return convertView;
     }
-    
+
     /**
      * 存放列表项内容,优化每次都要从xml中解析的开销
+     * 
      * @author john
-     *
+     * 
      */
-    static class ViewHolder{
+    static class ViewHolder {
         TextView title;
         TextView artist;
     }

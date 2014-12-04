@@ -15,5 +15,6 @@
 - 2014-11-21: 播放栏常驻底部
 - 2014-12-02: 完成列表项的定义和ListFragment适配器
 - 2014-12-03: 使用FragmentPagerAdapter代替PagerAdapter重构代码
+- 2014-12-04: 获取手机sdcard中所有音频信息
 
 ...

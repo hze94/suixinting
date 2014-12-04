@@ -9,9 +9,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
     ArrayList<Fragment> list;
 
-    public MyFragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> list) {
-        super(fm);
-        this.list = list;
+    public MyFragmentPagerAdapter(FragmentManager fragmentManager, ArrayList<Fragment> fragmentList) {
+        super(fragmentManager);
+        this.list = fragmentList;
 
     }
 

@@ -1,12 +1,16 @@
 package net.john.mplayer.audio;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.MediaStore;
 
+/**
+ * 通过ConentResolver从sqlite中获取audio信息
+ * @author john
+ *
+ */
 public class AudioProvider implements AbstructProvider {
 
     private Context context;
@@ -16,8 +20,8 @@ public class AudioProvider implements AbstructProvider {
     }
 
     @Override
-    public List<Audio> getList() {
-        List<Audio> list = null;
+    public ArrayList<Audio> getList() {
+        ArrayList<Audio> list = null;
         if (context != null) {
             Cursor cursor = context.getContentResolver().query(
                     MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null,

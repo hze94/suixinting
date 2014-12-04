@@ -12,15 +12,18 @@ import net.john.mplayer.audio.Audio;
 
 import java.util.ArrayList;
 
-public class LMFragment extends Fragment {
+public class RPFragment extends Fragment {
 
     private ArrayList<Audio> audios = new ArrayList<>();
-    private ListView         myListView;
+    private ListView         listView;
 
-    public LMFragment(ArrayList<Audio> audios) {
+    public RPFragment(ArrayList<Audio> audios) {
         this.audios = audios;
     }
 
+    /**
+     * 为这个ListFragment添加适配器来填充列表项
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +31,9 @@ public class LMFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_local_music, container, false);
-        myListView = (ListView)rootView.findViewById(R.id.local_music_list);
-        myListView.setAdapter(new MyBaseAdapter(getActivity(), audios));
+        View rootView = inflater.inflate(R.layout.fragment_recent_play, container, false);
+        listView = (ListView) rootView.findViewById(R.id.recent_play_list);
+        listView.setAdapter(new MyBaseAdapter(getActivity(),audios));
         return rootView;
     }
 

@@ -1,7 +1,7 @@
 package net.john.mplayer.audio;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface AbstructProvider {
-    public List<Audio> getList();
+    public ArrayList<Audio> getList();
 }

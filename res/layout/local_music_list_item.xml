@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/songName"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="14dp"
@@ -13,7 +13,7 @@
         android:textSize="14.5sp" />
 
     <TextView
-        android:id="@+id/singer"
+        android:id="@+id/artist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/songName"

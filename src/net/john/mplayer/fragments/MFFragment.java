@@ -12,25 +12,20 @@ import net.john.mplayer.audio.Audio;
 
 import java.util.ArrayList;
 
-public class LMFragment extends Fragment {
+public class MFFragment extends Fragment {
 
     private ArrayList<Audio> audios = new ArrayList<>();
-    private ListView         myListView;
+    private ListView listView;
 
-    public LMFragment(ArrayList<Audio> audios) {
+    public MFFragment(ArrayList<Audio> audios) {
         this.audios = audios;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_local_music, container, false);
-        myListView = (ListView)rootView.findViewById(R.id.local_music_list);
-        myListView.setAdapter(new MyBaseAdapter(getActivity(), audios));
+        View rootView = inflater.inflate(R.layout.fragment_favourite_music, container, false);
+        listView = (ListView)rootView.findViewById(R.id.favourite_music_list);
+        listView.setAdapter(new MyBaseAdapter(getActivity(),audios));
         return rootView;
     }
 

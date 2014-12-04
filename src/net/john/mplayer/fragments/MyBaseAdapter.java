@@ -1,8 +1,6 @@
 package net.john.mplayer.fragments;
 
 import android.content.Context;
-import android.os.Handler;
-import android.provider.ContactsContract.Contacts.Data;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import net.john.mplayer.R;
-import net.john.mplayer.comps.Song;
+import net.john.mplayer.audio.Audio;
 
 import java.util.ArrayList;
 
@@ -22,9 +20,9 @@ import java.util.ArrayList;
 public class MyBaseAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
-    private ArrayList<Song> songs = new ArrayList<>();
+    private ArrayList<Audio> songs = new ArrayList<>();
     
-    public MyBaseAdapter(Context context,ArrayList<Song> songs) {
+    public MyBaseAdapter(Context context,ArrayList<Audio> songs) {
         mInflater = LayoutInflater.from(context);
         this.songs = songs;
     }
@@ -53,14 +51,14 @@ public class MyBaseAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.local_music_list_item, null);
             holder = new ViewHolder();
-            holder.songName = (TextView)convertView.findViewById(R.id.songName);
-            holder.singer = (TextView)convertView.findViewById(R.id.singer);
+            holder.title = (TextView)convertView.findViewById(R.id.songName);
+            holder.artist = (TextView)convertView.findViewById(R.id.singer);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder)convertView.getTag();
         }
-        holder.songName.setText(songs.get(position).getSongName());
-        holder.singer.setText(songs.get(position).getSinger());
+        holder.title.setText(songs.get(position).getTitle());
+        holder.artist.setText(songs.get(position).getArtist());
         return convertView;
     }
     
@@ -70,8 +68,8 @@ public class MyBaseAdapter extends BaseAdapter {
      *
      */
     static class ViewHolder{
-        TextView songName;
-        TextView singer;
+        TextView title;
+        TextView artist;
     }
 
 }

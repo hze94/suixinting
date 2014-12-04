@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 
+import net.john.mplayer.audio.Audio;
+import net.john.mplayer.fragments.LMFragment;
 import net.john.mplayer.tabs.MyTabListener;
 import net.john.mplayer.viewpager.MyOnPageChangeListener;
 import net.john.mplayer.viewpager.MyPagerAdapter;
@@ -26,9 +28,11 @@ public class MainActivity extends Activity {
     private ActionBar           mActionBar;
     private ViewPager           mViewPager;
     private List<View>          mTabPagerList = new ArrayList<View>();
-    private View                favouriteMusicFragment, localMusicFragment
-                                , recentPlayFragment, playColumnFragment;
+//    private View                favouriteMusicFragment, localMusicFragment
+//                                , recentPlayFragment, playColumnFragment;
+    private Fragment lmFragment,rpFragment,mFFragment;
     private ArrayList<Fragment> fragmentList;
+    private ArrayList<Audio> audios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         setUpActionBar();
-        setUpFragment();
+//        setUpFragment();
         setUpViewPager();
         setUpTabs();
         getOverflowMenu();
@@ -53,12 +57,12 @@ public class MainActivity extends Activity {
     /**
      * 创建fragment 本地音乐,我的最爱,最近播放三个条目
      */
-    private void setUpFragment() {
-        LayoutInflater mInflater = getLayoutInflater();
-        favouriteMusicFragment = mInflater.inflate(R.layout.fragment_favourite_music, null);
-        localMusicFragment = mInflater.inflate(R.layout.fragment_local_music, null);
-        recentPlayFragment = mInflater.inflate(R.layout.fragment_recent_play, null);
-    }
+//    private void setUpFragment() {
+//        LayoutInflater mInflater = getLayoutInflater();
+//        favouriteMusicFragment = mInflater.inflate(R.layout.fragment_favourite_music, null);
+//        localMusicFragment = mInflater.inflate(R.layout.fragment_local_music, null);
+//        recentPlayFragment = mInflater.inflate(R.layout.fragment_recent_play, null);
+//    }
 
     /**
      * 创建动作栏的tab
@@ -75,18 +79,24 @@ public class MainActivity extends Activity {
         }
     }
 
+    // private void setUpViewPager() {
+    // // 获取ViewPager
+    // mViewPager = (ViewPager) findViewById(R.id.viewpager);
+    //
+    // mTabPagerList.add(localMusicFragment);
+    // mTabPagerList.add(favouriteMusicFragment);
+    // mTabPagerList.add(recentPlayFragment);
+    //
+    // // 初始化mAdapter
+    // mViewPager.setAdapter(new MyPagerAdapter(mTabPagerList));
+    // mViewPager.setCurrentItem(0);
+    // mViewPager.setOnPageChangeListener(new
+    // MyOnPageChangeListener(mActionBar));
+    // }
+
     private void setUpViewPager() {
-        // 获取ViewPager
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-
-        mTabPagerList.add(localMusicFragment);
-        mTabPagerList.add(favouriteMusicFragment);
-        mTabPagerList.add(recentPlayFragment);
-
-        // 初始化mAdapter
-        mViewPager.setAdapter(new MyPagerAdapter(mTabPagerList));
-        mViewPager.setCurrentItem(0);
-        mViewPager.setOnPageChangeListener(new MyOnPageChangeListener(mActionBar));
+        lmFragment = new LMFragment(audios);
     }
 
     @Override

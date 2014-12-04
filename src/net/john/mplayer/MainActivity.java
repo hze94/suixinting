@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 
 import net.john.mplayer.audio.Audio;
+import net.john.mplayer.audio.AudioProvider;
 import net.john.mplayer.fragments.LMFragment;
 import net.john.mplayer.fragments.MFFragment;
 import net.john.mplayer.fragments.RPFragment;
@@ -39,11 +40,16 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        AudioInit();
         setUpActionBar();
         setUpViewPager();
         setUpTabs();
         getOverflowMenu();
+    }
+
+    private void AudioInit() {
+        AudioProvider audioProvider = new AudioProvider(this);
+        audios = audioProvider.getList();
     }
 
     /**

@@ -6,33 +6,14 @@
     <RelativeLayout
         android:id="@+id/play_column"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:background="#D46F1F" >
 
         <!-- 播放，上一曲，下一曲按钮 -->
-        <Button
-            android:id="@+id/forward"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/ic_action_next" />
-
-        <Button
-            android:id="@+id/play"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@id/forward"
-            android:background="@drawable/ic_action_play_over_video" />
-
-        <Button
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@id/play"
-            android:background="@drawable/ic_action_previous" />
 
         <!-- 歌名TextView -->
+
         <TextView
             android:id="@+id/songName"
             android:layout_width="wrap_content"
@@ -41,23 +22,55 @@
             android:paddingLeft="7dp"
             android:text="泡沫"
             android:textColor="#fff"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <!-- 歌手名TextView -->
+
         <TextView
             android:id="@+id/singerName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/songName"
             android:gravity="center|bottom"
-            android:paddingBottom="16dp"
+            android:paddingBottom="12dp"
             android:paddingLeft="5dp"
             android:text="邓紫棋"
             android:textColor="#fff"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/play"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_previous" />
+
+        <ImageButton
+            android:id="@+id/forward"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_next" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/forward"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_play_over_video" />
+
     </RelativeLayout>
 
     <!-- ViewPager -->
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"

@@ -15,7 +15,7 @@
         <!-- 歌名TextView -->
 
         <TextView
-            android:id="@+id/songName"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -27,10 +27,10 @@
         <!-- 歌手名TextView -->
 
         <TextView
-            android:id="@+id/singerName"
+            android:id="@+id/artist"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/songName"
+            android:layout_toRightOf="@id/title"
             android:gravity="center|bottom"
             android:paddingBottom="12dp"
             android:paddingLeft="5dp"
@@ -39,17 +39,17 @@
             android:textSize="14sp" />
 
         <ImageButton
-            android:id="@+id/back"
+            android:id="@+id/previousButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_marginRight="14dp"
-            android:layout_toLeftOf="@+id/play"
+            android:layout_toLeftOf="@+id/playButton"
             android:background="#D46F1F"
             android:src="@drawable/ic_action_previous" />
 
         <ImageButton
-            android:id="@+id/forward"
+            android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
@@ -58,12 +58,12 @@
             android:src="@drawable/ic_action_next" />
 
         <ImageButton
-            android:id="@+id/play"
+            android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_marginRight="14dp"
-            android:layout_toLeftOf="@+id/forward"
+            android:layout_toLeftOf="@+id/nextButton"
             android:background="#D46F1F"
             android:src="@drawable/ic_action_play_over_video" />
 

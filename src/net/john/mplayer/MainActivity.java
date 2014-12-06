@@ -10,7 +10,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewConfiguration;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.audio.AudioProvider;
@@ -36,6 +39,9 @@ public class MainActivity extends FragmentActivity {
     private ArrayList<Fragment> fragmentList;
     private ArrayList<Audio>    audios;
 
+    private ImageButton         playButton, previousButton, nextButton;
+    private TextView            titleTextView, artistTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,8 @@ public class MainActivity extends FragmentActivity {
         setUpViewPager();
         setUpTabs();
         getOverflowMenu();
+
+        setButtonListeners();
     }
 
     private void AudioInit() {
@@ -61,19 +69,6 @@ public class MainActivity extends FragmentActivity {
     }
 
     /**
-     * 创建fragment 本地音乐,我的最爱,最近播放三个条目
-     */
-    // private void setUpFragment() {
-    // LayoutInflater mInflater = getLayoutInflater();
-    // favouriteMusicFragment =
-    // mInflater.inflate(R.layout.fragment_favourite_music, null);
-    // localMusicFragment = mInflater.inflate(R.layout.fragment_local_music,
-    // null);
-    // recentPlayFragment = mInflater.inflate(R.layout.fragment_recent_play,
-    // null);
-    // }
-
-    /**
      * 创建动作栏的tab
      */
     private void setUpTabs() {
@@ -87,21 +82,6 @@ public class MainActivity extends FragmentActivity {
             mActionBar.addTab(tab, false);
         }
     }
-
-    // private void setUpViewPager() {
-    // // 获取ViewPager
-    // mViewPager = (ViewPager) findViewById(R.id.viewpager);
-    //
-    // mTabPagerList.add(localMusicFragment);
-    // mTabPagerList.add(favouriteMusicFragment);
-    // mTabPagerList.add(recentPlayFragment);
-    //
-    // // 初始化mAdapter
-    // mViewPager.setAdapter(new MyPagerAdapter(mTabPagerList));
-    // mViewPager.setCurrentItem(0);
-    // mViewPager.setOnPageChangeListener(new
-    // MyOnPageChangeListener(mActionBar));
-    // }
 
     private void setUpViewPager() {
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -134,6 +114,7 @@ public class MainActivity extends FragmentActivity {
                 return true;
             case R.id.action_settings:
                 // openSettings();
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -152,6 +133,22 @@ public class MainActivity extends FragmentActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void setButtonListeners() {
+        playButton = (ImageButton) findViewById(R.id.playButton);
+        previousButton = (ImageButton) findViewById(R.id.previousButton);
+        nextButton = (ImageButton) findViewById(R.id.nextButton);
+        playButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (playButton.getBackground() == getResources().getDrawable(R.drawable.ic_action_play_over_video)) {
+                    playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
+                } else {
+                    playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_play_over_video));
+                }
+            }
+        });
     }
 
 }

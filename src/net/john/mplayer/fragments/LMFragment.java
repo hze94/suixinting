@@ -56,6 +56,7 @@ public class LMFragment extends Fragment implements OnItemClickListener {
                 public void onCompletion(MediaPlayer mp) {
                     mediaPlayer.reset();
                     try {
+                        //此处可能有bug，可能需取模
                         mediaPlayer.setDataSource(audios.get(p + 1).getPath().substring(4));
                         mediaPlayer.prepare();
                         mediaPlayer.start();

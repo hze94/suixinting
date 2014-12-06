@@ -20,4 +20,6 @@
 - 2014-12-05: 优化底部播放栏(将播放，上/下一曲Button改为ImageButton来实现)
 - 2014-12-05: 实现点击不同列表项播放对应的音乐
 
+    - <img src="./image/overview1.png" height="650"/>
+
 ...

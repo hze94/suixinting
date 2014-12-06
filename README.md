@@ -18,5 +18,6 @@
 - 2014-12-04: 获取手机sdcard中所有音频信息(ContentProvider,从系统提供的MediaStore中获取)
 - 2014-12-04: 实现每个标签页下的fragment(各有一个ListView)
 - 2014-12-05: 优化底部播放栏(将播放，上/下一曲Button改为ImageButton来实现)
+- 2014-12-05: 实现点击不同列表项播放对应的音乐
 
 ...

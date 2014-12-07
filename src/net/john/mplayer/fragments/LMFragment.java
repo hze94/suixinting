@@ -1,6 +1,5 @@
 package net.john.mplayer.fragments;
 
-import android.R.integer;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
@@ -24,6 +23,10 @@ public class LMFragment extends Fragment implements OnItemClickListener {
     private ArrayList<Audio> audios = new ArrayList<>();
     MediaPlayer mediaPlayer = new MediaPlayer();
     private ListView         myListView;
+    
+    public interface OnAudioItemClickListener {
+        public void onAudioItemClick();
+    }
 
     public LMFragment(ArrayList<Audio> audios) {
         this.audios = audios;
@@ -77,5 +80,5 @@ public class LMFragment extends Fragment implements OnItemClickListener {
         } catch (IOException e) {
         }
     }
-
+    
 }

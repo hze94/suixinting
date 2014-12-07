@@ -18,6 +18,7 @@ import android.widget.TextView;
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.audio.AudioProvider;
 import net.john.mplayer.fragments.LMFragment;
+import net.john.mplayer.fragments.LMFragment.OnAudioItemClickListener;
 import net.john.mplayer.fragments.MFFragment;
 import net.john.mplayer.fragments.RPFragment;
 import net.john.mplayer.tabs.MyTabListener;
@@ -28,7 +29,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements OnAudioItemClickListener{
 
     private ActionBar           mActionBar;
     private ViewPager           mViewPager;
@@ -160,6 +161,11 @@ public class MainActivity extends FragmentActivity {
             }
         }
         
+    }
+
+    @Override
+    public void onAudioItemClick() {
+        playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
     }
 
 }

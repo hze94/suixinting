@@ -32,7 +32,7 @@ public class MainActivity extends FragmentActivity{
 
     private ActionBar           mActionBar;
     private ViewPager           mViewPager;
-    private List<View>          mTabPagerList = new ArrayList<View>();
+    private List<Tab>          mTabPagerList = new ArrayList<Tab>();
     private LMFragment          lmFragment    = null;
     private RPFragment          rpFragment    = null;
     private MFFragment          mfFragment    = null;
@@ -72,13 +72,13 @@ public class MainActivity extends FragmentActivity{
      * 创建动作栏的tab
      */
     private void setUpTabs() {
-        MyTabListener mtabListener = new MyTabListener(mViewPager, mTabPagerList);
-        // mActionBar = getActionBar();
         String[] tabName = { "本地音乐", "我的最爱", "最近播放" };
+        MyTabListener mtabListener = new MyTabListener(mViewPager, mTabPagerList);
         for (int i = 0; i < 3; i++) {
             Tab tab = mActionBar.newTab();
             tab.setText(tabName[i]);
             tab.setTabListener(mtabListener);
+            mTabPagerList.add(tab);
             mActionBar.addTab(tab, false);
         }
     }

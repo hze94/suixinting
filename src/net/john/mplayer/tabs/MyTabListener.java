@@ -11,10 +11,10 @@ import java.util.List;
 
 public class MyTabListener implements TabListener {
 
-    private ViewPager mViewPager;
-    private List<View>        mTabPagerList = new ArrayList<View>();
+    private ViewPager  mViewPager;
+    private List<Tab> mTabPagerList = new ArrayList<Tab>();
 
-    public MyTabListener(ViewPager mViewPager,List<View> mTabPagerList) {
+    public MyTabListener(ViewPager mViewPager, List<Tab> mTabPagerList) {
         this.mViewPager = mViewPager;
         this.mTabPagerList = mTabPagerList;
     }

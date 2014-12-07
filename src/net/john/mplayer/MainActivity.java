@@ -146,11 +146,11 @@ public class MainActivity extends FragmentActivity{
     
     class MyClickListener implements OnClickListener{
 
-        private boolean isPlaying = false;
         public MyClickListener() {}
         
         @Override
         public void onClick(View v) {
+            boolean isPlaying = lmFragment.isPlaying();
             if (!isPlaying) {
                 playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
                 lmFragment.startAudio();

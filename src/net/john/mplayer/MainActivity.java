@@ -139,16 +139,27 @@ public class MainActivity extends FragmentActivity {
         playButton = (ImageButton) findViewById(R.id.playButton);
         previousButton = (ImageButton) findViewById(R.id.previousButton);
         nextButton = (ImageButton) findViewById(R.id.nextButton);
-        playButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (playButton.getBackground() == getResources().getDrawable(R.drawable.ic_action_play_over_video)) {
-                    playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
-                } else {
-                    playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_play_over_video));
-                }
+        
+        playButton.setOnClickListener(new MyClickListener());
+        
+    }
+    
+    class MyClickListener implements OnClickListener{
+
+        private boolean isPlaying = false;
+        public MyClickListener() {}
+        
+        @Override
+        public void onClick(View v) {
+            if (!isPlaying) {
+                playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
+                isPlaying = true;
+            } else {
+                playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_play_over_video));
+                isPlaying = false;
             }
-        });
+        }
+        
     }
 
 }

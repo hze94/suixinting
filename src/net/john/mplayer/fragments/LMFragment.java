@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import net.john.mplayer.R;
@@ -65,6 +66,8 @@ public class LMFragment extends Fragment implements OnItemClickListener {
                     }
                 }
             });
+            ImageButton iButton = (ImageButton) getActivity().findViewById(R.id.playButton);
+            iButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (SecurityException e) {

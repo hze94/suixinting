@@ -24,10 +24,6 @@ public class LMFragment extends Fragment implements OnItemClickListener {
     MediaPlayer mediaPlayer = new MediaPlayer();
     private ListView         myListView;
     
-    public interface OnAudioItemClickListener {
-        public void onAudioItemClick();
-    }
-
     public LMFragment(ArrayList<Audio> audios) {
         this.audios = audios;
     }
@@ -79,6 +75,18 @@ public class LMFragment extends Fragment implements OnItemClickListener {
             e.printStackTrace();
         } catch (IOException e) {
         }
+    }
+    
+    public void pauseAudio(){
+        mediaPlayer.pause();
+    }
+    
+    public void stopAudio(){
+        mediaPlayer.stop();
+    }
+    
+    public void startAudio(){
+        mediaPlayer.start();
     }
     
 }

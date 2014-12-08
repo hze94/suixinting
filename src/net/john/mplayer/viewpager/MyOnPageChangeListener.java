@@ -2,6 +2,8 @@ package net.john.mplayer.viewpager;
 
 import android.app.ActionBar;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 
 public class MyOnPageChangeListener implements OnPageChangeListener {
 
@@ -19,6 +21,10 @@ public class MyOnPageChangeListener implements OnPageChangeListener {
     @Override
     public void onPageSelected(int position) {
         mActionBar.setSelectedNavigationItem(position);
+//        Animation animation = new TranslateAnimation(mActionBar.getSelectedNavigationIndex(), position, 0, 0);
+//        animation.setFillAfter(true);
+//        animation.setDuration(300);
+        
     }
 
     @Override

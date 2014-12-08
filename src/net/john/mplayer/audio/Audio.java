@@ -16,6 +16,17 @@ public class Audio {
     private String mimeType;
     private long duration;
     private long size;
+    private boolean isFavourite = false;
+    
+    
+    public boolean getIsFavourite() {
+        return isFavourite;
+    }
+
+    public void setIsFavourite(boolean isFavourite) {
+        this.isFavourite = isFavourite;
+    }
+
     
     /**
      * 

@@ -14,15 +14,15 @@
 
         <net.john.mplayer.AlwaysMarqueeTextView
             android:id="@+id/title"
-            android:layout_width="180dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
+            android:focusable="true"
             android:marqueeRepeatLimit="marquee_forever"
             android:paddingLeft="9dp"
             android:paddingTop="8dp"
             android:scrollX="2dp"
             android:singleLine="true"
-            android:focusable="true"
             android:textColor="#fff"
             android:textSize="16sp" />
 
@@ -33,13 +33,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
+            android:focusable="true"
             android:marqueeRepeatLimit="marquee_forever"
             android:paddingLeft="9dp"
             android:paddingTop="27dp"
             android:singleLine="true"
-            android:focusable="true"
             android:textColor="#fff"
             android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/heartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#D46F1F"
+            android:paddingRight="9dp"
+            android:src="@drawable/icon_favorite" />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="52dp"
+            android:layout_toLeftOf="@+id/heartButton"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_next" />
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@id/nextButton"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_play_over_video" />
 
         <ImageButton
             android:id="@+id/previousButton"
@@ -50,25 +81,6 @@
             android:layout_toLeftOf="@+id/playButton"
             android:background="#D46F1F"
             android:src="@drawable/ic_action_previous" />
-
-        <ImageButton
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="#D46F1F"
-            android:src="@drawable/ic_action_next" />
-
-        <ImageButton
-            android:id="@+id/playButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="14dp"
-            android:layout_toLeftOf="@+id/nextButton"
-            android:background="#D46F1F"
-            android:src="@drawable/ic_action_play_over_video" />
     </RelativeLayout>
 
     <!-- ViewPager -->

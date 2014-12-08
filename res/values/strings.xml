@@ -2,15 +2,10 @@
 <resources>
 
     <string name="app_name"> 随心听</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">设置</string>
+    <string name="action_exit">退出</string>
     <string name="action_search">Search</string>
     <string name="button_send">Send</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="tab_local_music">本地音乐</string>
-    <string name="tab_my_favorite">我的最爱</string>
-    <string name="tab_recently_play">最近播放</string>
-	<string name="frag_1">fragment1</string>
-	<string name="frag_2">fragment2</string>
-	<string name="frag_3">fragment3</string>
-    
+
 </resources>

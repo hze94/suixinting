@@ -12,12 +12,12 @@ import net.john.mplayer.audio.Audio;
 
 import java.util.ArrayList;
 
-public class RPFragment extends Fragment {
+public class ArtistFragment extends Fragment {
 
     private ArrayList<Audio> audios = new ArrayList<>();
     private ListView         listView;
 
-    public RPFragment(ArrayList<Audio> audios) {
+    public ArtistFragment(ArrayList<Audio> audios) {
         this.audios = audios;
     }
 

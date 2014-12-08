@@ -142,6 +142,39 @@ public class MainActivity extends FragmentActivity{
         
         playButton.setOnClickListener(new MyClickListener());
         
+        nextButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                lmFragment.resetAudio();
+                lmFragment.setAudioSource((audios.get((lmFragment.getNowPostion() + 1) % audios.size()).getPath()));
+                lmFragment.setNowPostion((lmFragment.getNowPostion() + 1) % audios.size());
+                lmFragment.prepareAudio();
+                lmFragment.setPlayColumnStatus();
+                lmFragment.startAudio();
+            }
+            
+        });
+        
+        previousButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                lmFragment.resetAudio();
+                if ((lmFragment.getNowPostion() - 1) < 0) {
+                    lmFragment.setAudioSource((audios.get(audios.size() - 1).getPath()));
+                    lmFragment.setNowPostion(audios.size() -1);
+                }
+                else {
+                    
+                    lmFragment.setAudioSource((audios.get(lmFragment.getNowPostion() - 1).getPath()));
+                    lmFragment.setNowPostion(lmFragment.getNowPostion() - 1);
+                }
+                lmFragment.prepareAudio();
+                lmFragment.setPlayColumnStatus();
+                lmFragment.startAudio();
+            }
+        });
     }
     
     class MyClickListener implements OnClickListener{

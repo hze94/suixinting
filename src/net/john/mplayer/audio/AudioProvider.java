@@ -1,6 +1,12 @@
 package net.john.mplayer.audio;
 
+import java.text.CollationKey;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -62,6 +68,22 @@ public class AudioProvider implements AbstructProvider {
                 cursor.close();
             }
         }
+        Comparator<Audio> comparator = new Comparator<Audio>() {
+            
+            @Override
+            public int compare(Audio lhs, Audio rhs) {
+                Collator collator = Collator.getInstance(Locale.CHINESE);
+                if(!lhs.getTitle().equals(rhs.getTitle())){
+                    return (collator.compare(lhs.getTitle(), rhs.getTitle()));
+                }else if (!lhs.getArtist().equals(rhs.getTitle())) {
+                    return (collator.compare(lhs.getArtist(), rhs.getArtist()));
+                }else {
+                    return (collator.compare(lhs.getPath(), rhs.getPath()));
+                }
+            }
+            
+        };
+//        Collections.sort(list, comparator);
         return list;
     }
 

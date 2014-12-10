@@ -59,7 +59,7 @@ public class LMFragment extends Fragment implements OnItemClickListener {
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         try {
-
+            
             /*
              * 标识当前item位置和当前播放的audio
              */

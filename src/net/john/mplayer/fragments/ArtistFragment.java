@@ -31,9 +31,9 @@ public class ArtistFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_recent_play, container, false);
-        listView = (ListView) rootView.findViewById(R.id.recent_play_list);
-        listView.setAdapter(new MyBaseAdapter(getActivity(),audios));
+        View rootView = inflater.inflate(R.layout.fragment_artist, container, false);
+        listView = (ListView) rootView.findViewById(R.id.artist_list);
+        listView.setAdapter(new MyArtistAdapter(getActivity(),audios));
         return rootView;
     }
 

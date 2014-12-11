@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import net.john.mplayer.audio.Audio;
@@ -37,21 +38,25 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
         setContentView(R.layout.activity_artist_audio);
 
         dataInit();
-        
+
+        // TextView textView = (TextView)findViewById(R.id.test);
+        // textView.setText("artistName: " + artistName + "songs: " +
+        // artistAudios.size());
         listView = (ListView) findViewById(R.id.artist_audio_list);
-        listView.setAdapter(new ArtistAudioAdapter(artistAudios));
+        listView.setAdapter(new ArtistAudioAdapter(this, artistAudios));
         listView.setOnItemClickListener(this);
     }
 
     private void dataInit() {
         Bundle bundle = getIntent().getExtras();
         artistName = bundle.getString("currentArtist");
+        System.out.println("artistname: " + artistName);
 
         @SuppressWarnings("unchecked") ArrayList<Audio> audios = (ArrayList<Audio>) bundle.getSerializable("allAudios");
 
         AudioParser audioParser = new AudioParser(audios);
         artistMap = audioParser.parseArtist();
-        
+
         artistAudios = artistMap.get(artistName);
     }
 
@@ -82,7 +87,7 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        
+
     }
 
 }

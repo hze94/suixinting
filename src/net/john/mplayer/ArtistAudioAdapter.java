@@ -1,5 +1,6 @@
 package net.john.mplayer;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,17 +21,18 @@ import java.util.ArrayList;
 public class ArtistAudioAdapter extends BaseAdapter {
 
     private LayoutInflater   mInflater;
-    
-    //一个artist的audios
-    private ArrayList<Audio> audios = new ArrayList<>();
 
-    public ArtistAudioAdapter(ArrayList<Audio> audios) {
-        this.audios = audios;
+    // 一个artist的audios
+    private ArrayList<Audio> artistAudios = new ArrayList<>();
+
+    public ArtistAudioAdapter(Context context,ArrayList<Audio> audios) {
+        mInflater = LayoutInflater.from(context);
+        this.artistAudios = audios;
     }
 
     @Override
     public int getCount() {
-        return audios.size();
+        return artistAudios.size();
     }
 
     @Override
@@ -49,19 +51,19 @@ public class ArtistAudioAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.music_list_item, null);
             holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.title);
-            holder.artist = (TextView) convertView.findViewById(R.id.artist);
+            holder.title = (TextView) convertView.findViewById(R.id.title_tv);
+            holder.artist = (TextView) convertView.findViewById(R.id.artist_tv);
             holder.duration = (TextView) convertView.findViewById(R.id.duration_tv);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.title.setText(audios.get(position).getTitle());
-        holder.artist.setText(audios.get(position).getArtist());
-        holder.duration.setText(audios.get(position).getDuration() + "");
+        holder.title.setText(artistAudios.get(position).getTitle());
+        holder.artist.setText(artistAudios.get(position).getArtist());
+        holder.duration.setText(artistAudios.get(position).getDuration() + "");
         return convertView;
     }
-    
+
     static class ViewHolder {
         TextView title;
         TextView artist;

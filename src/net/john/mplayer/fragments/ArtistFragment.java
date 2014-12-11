@@ -49,6 +49,7 @@ public class ArtistFragment extends Fragment implements OnItemClickListener{
         Bundle bundle = new Bundle();
         bundle.putSerializable("allAudios", audios);
         bundle.putString("currentArtist", audios.get(position).getArtist());
+        intent.putExtras(bundle);
         startActivity(intent);
     }
     

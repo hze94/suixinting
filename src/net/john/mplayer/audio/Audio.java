@@ -1,24 +1,30 @@
 package net.john.mplayer.audio;
 
+import java.io.Serializable;
+
 /**
  * 音频信息类
+ * 
  * @author john
- *
+ * 
  */
-public class Audio {
+public class Audio implements Serializable {
 
-    private int id;
-    private String title;
-    private String album;
-    private String artist;
-    private String path;
-    private String displayName;
-    private String mimeType;
-    private long duration;
-    private long size;
-    private boolean isFavourite = false;
-    
-    
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    private int               id;
+    private String            title;
+    private String            album;
+    private String            artist;
+    private String            path;
+    private String            displayName;
+    private String            mimeType;
+    private long              duration;
+    private long              size;
+    private boolean           isFavourite      = false;
+
     public boolean getIsFavourite() {
         return isFavourite;
     }
@@ -27,7 +33,6 @@ public class Audio {
         this.isFavourite = isFavourite;
     }
 
-    
     /**
      * 
      */
@@ -47,8 +52,8 @@ public class Audio {
      * @param size
      */
     public Audio(int id, String title, String album, String artist,
-            String path, String displayName, String mimeType, long duration,
-            long size) {
+                 String path, String displayName, String mimeType, long duration,
+                 long size) {
         super();
         this.id = id;
         this.title = title;
@@ -132,5 +137,5 @@ public class Audio {
     public void setSize(long size) {
         this.size = size;
     }
-    
+
 }

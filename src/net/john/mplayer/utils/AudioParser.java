@@ -15,6 +15,10 @@ public class AudioParser {
         this.audios = audios;
     }
 
+    /**
+     * 将audio arraylist数据解析成一个map,对应每个artist和它的歌曲
+     * @return
+     */
     public HashMap<String, ArrayList<Audio>> parseArtist() {
         artistMap = new HashMap<>();
         ArrayList<Audio> artistAudios; // 一个artist的歌曲列表

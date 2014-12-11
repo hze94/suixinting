@@ -12,5 +12,11 @@
         android:cacheColorHint="@android:color/transparent"
         android:focusable="true">
     </ListView>
+    
+    <TextView 
+        android:id="@+id/audio_sum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xxx songs"/>
 
 </LinearLayout>

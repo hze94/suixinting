@@ -84,6 +84,7 @@ public class LMFragment extends Fragment implements OnItemClickListener {
                     } catch (IllegalArgumentException | SecurityException | IllegalStateException | IOException e) {
                         e.printStackTrace();
                     }
+                    setPlayColumnStatus();
                 }
             });
 

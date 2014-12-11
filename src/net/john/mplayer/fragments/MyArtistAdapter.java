@@ -51,8 +51,8 @@ public class MyArtistAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.artist_list_item, null);
             holder = new ViewHolder();
-            holder.artistName = (TextView) convertView.findViewById(R.id.artistName);
-            holder.songCount = (TextView) convertView.findViewById(R.id.songCount);
+            holder.artistName = (TextView) convertView.findViewById(R.id.artist_tv);
+            holder.songCount = (TextView) convertView.findViewById(R.id.songcount_tv);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();

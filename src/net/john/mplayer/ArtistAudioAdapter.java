@@ -60,7 +60,7 @@ public class ArtistAudioAdapter extends BaseAdapter {
         }
         holder.title.setText(artistAudios.get(position).getTitle());
         holder.artist.setText(artistAudios.get(position).getArtist());
-        holder.duration.setText(artistAudios.get(position).getDuration() + "");
+        holder.duration.setText(artistAudios.get(position).getFormatDuration());
         return convertView;
     }
 

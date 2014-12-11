@@ -1,6 +1,9 @@
 package net.john.mplayer.audio;
 
+import android.Manifest.permission;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 /**
  * 音频信息类
@@ -124,6 +127,11 @@ public class Audio implements Serializable {
 
     public long getDuration() {
         return duration;
+    }
+    
+    public String getFormatDuration(){
+        SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
+        return sdf.format(duration);
     }
 
     public void setDuration(long duration) {

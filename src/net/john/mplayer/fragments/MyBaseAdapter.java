@@ -52,14 +52,16 @@ public class MyBaseAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.local_music_list_item, null);
             holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.title);
-            holder.artist = (TextView) convertView.findViewById(R.id.artist);
+            holder.title = (TextView) convertView.findViewById(R.id.title_tv);
+            holder.artist = (TextView) convertView.findViewById(R.id.artist_tv);
+            holder.duration = (TextView) convertView.findViewById(R.id.duration_tv);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.title.setText(audios.get(position).getTitle());
         holder.artist.setText(audios.get(position).getArtist());
+        holder.duration.setText(audios.get(position).getFormatDuration());
         return convertView;
     }
 
@@ -72,6 +74,7 @@ public class MyBaseAdapter extends BaseAdapter {
     static class ViewHolder {
         TextView title;
         TextView artist;
+        TextView duration;
     }
 
 }

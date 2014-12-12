@@ -4,13 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import net.john.mplayer.R;
 import net.john.mplayer.audio.Audio;
-import net.john.mplayer.fragments.MyBaseAdapter.ViewHolder;
 import net.john.mplayer.utils.AudioParser;
 
 import java.util.ArrayList;

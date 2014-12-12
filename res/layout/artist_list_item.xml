@@ -1,41 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/listview_item_indicator"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="vertical" >
-
-    <LinearLayout
-        android:id="@+id/titleLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="14dp"
-        android:paddingTop="8dp" >
-
-<TextView
-                android:id="@+id/artistName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:text="陈奕迅"
-                android:textSize="15.5sp" />
-        	
-    </LinearLayout>
-
-    <TextView
-                android:id="@+id/songCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingLeft="13.5dp"
-                android:text="1 songs"
-                android:textSize="12sp" />
-
-</RelativeLayout>
--->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -70,7 +33,6 @@
                 android:id="@+id/artist_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:text="陈奕迅"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -85,7 +47,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8.0dip"
                 android:layout_weight="1"
-                android:text="1 songs"
                 android:textSize="12sp" />
 
         </LinearLayout>

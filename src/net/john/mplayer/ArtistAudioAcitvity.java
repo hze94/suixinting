@@ -7,12 +7,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.utils.AudioParser;
@@ -26,7 +23,6 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
     private ListView                          listView;
     private String                            artistName;
     private HashMap<String, ArrayList<Audio>> artistMap;
-    private ArrayList<Audio>                  audios;
     private ArrayList<Audio>                  artistAudios;
 
     public ArtistAudioAcitvity() {}
@@ -39,9 +35,9 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
 
         dataInit();
 
-        // TextView textView = (TextView)findViewById(R.id.test);
-        // textView.setText("artistName: " + artistName + "songs: " +
-        // artistAudios.size());
+//         TextView textView = (TextView)findViewById(R.id.test);
+//         textView.setText("artistName: " + artistName + "songs: " +
+//         artistAudios.size());
         listView = (ListView) findViewById(R.id.artist_audio_list);
         listView.setAdapter(new ArtistAudioAdapter(this, artistAudios));
         listView.setOnItemClickListener(this);
@@ -58,6 +54,7 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
         artistMap = audioParser.parseArtist();
 
         artistAudios = artistMap.get(artistName);
+        System.out.println(artistAudios.size());
     }
 
     @Override

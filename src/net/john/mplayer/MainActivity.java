@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewConfiguration;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.audio.AudioProvider;
@@ -40,7 +39,6 @@ public class MainActivity extends FragmentActivity {
     private ArrayList<Audio>    audios, mfAudios;
 
     private ImageButton         playButton, previousButton, nextButton, heartButton;
-    private TextView            titleTextView, artistTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

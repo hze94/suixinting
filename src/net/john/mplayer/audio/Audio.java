@@ -1,7 +1,5 @@
 package net.john.mplayer.audio;
 
-import android.Manifest.permission;
-
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 

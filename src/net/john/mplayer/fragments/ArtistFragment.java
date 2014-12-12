@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.BounceInterpolator;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -14,16 +13,20 @@ import android.widget.ListView;
 import net.john.mplayer.ArtistAudioAcitvity;
 import net.john.mplayer.R;
 import net.john.mplayer.audio.Audio;
+import net.john.mplayer.utils.AudioParser;
 
 import java.util.ArrayList;
 
 public class ArtistFragment extends Fragment implements OnItemClickListener{
 
     private ArrayList<Audio> audios = new ArrayList<>();
+    private ArrayList<String> artistNames = new ArrayList<>();
     private ListView         listView;
 
     public ArtistFragment(ArrayList<Audio> audios) {
         this.audios = audios;
+        AudioParser parser = new AudioParser(audios);
+        artistNames = parser.parseArtistNames();
     }
 
     /**
@@ -48,7 +51,7 @@ public class ArtistFragment extends Fragment implements OnItemClickListener{
         Intent intent = new Intent(getActivity(),ArtistAudioAcitvity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("allAudios", audios);
-        bundle.putString("currentArtist", audios.get(position).getArtist());
+        bundle.putString("currentArtist", artistNames.get(position));
         intent.putExtras(bundle);
         startActivity(intent);
     }

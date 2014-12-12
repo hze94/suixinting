@@ -2,8 +2,6 @@ package net.john.mplayer.viewpager;
 
 import android.app.ActionBar;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 
 public class MyOnPageChangeListener implements OnPageChangeListener {
 

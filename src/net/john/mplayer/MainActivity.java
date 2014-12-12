@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewConfiguration;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.audio.AudioProvider;
@@ -189,10 +190,14 @@ public class MainActivity extends FragmentActivity {
                     nowAudio.setIsFavourite(true);
                     mfAudios.add(nowAudio);
                     lmFragment.setFavouriteStatus(true);
+                    Toast toast=Toast.makeText(getApplicationContext(), "标记为我喜欢", Toast.LENGTH_SHORT); 
+                    toast.show();
                 } else {
                     heartButton.setImageDrawable(getResources().getDrawable(R.drawable.icon_favorite));
                     lmFragment.setFavouriteStatus(false);
                     mfAudios.remove(nowAudio);// ------
+                    Toast toast=Toast.makeText(getApplicationContext(), "取消我喜欢标记", Toast.LENGTH_SHORT); 
+                    toast.show();
                 }
             }
         });

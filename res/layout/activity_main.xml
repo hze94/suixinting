@@ -12,7 +12,7 @@
 
         <!-- 歌名TextView -->
 
-        <net.john.mplayer.AlwaysMarqueeTextView
+        <net.john.mplayer.activity.AlwaysMarqueeTextView
             android:id="@+id/title"
             android:layout_width="140dp"
             android:layout_height="wrap_content"

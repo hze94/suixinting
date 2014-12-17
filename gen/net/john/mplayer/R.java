@@ -88,10 +88,11 @@ public final class R {
         public static final int activity_main=0x7f030001;
         public static final int artist_list_item=0x7f030002;
         public static final int fragment_artist=0x7f030003;
-        public static final int fragment_favourite_music=0x7f030004;
-        public static final int fragment_local_music=0x7f030005;
-        public static final int local_music_list_item=0x7f030006;
-        public static final int music_list_item=0x7f030007;
+        public static final int fragment_artist_audio=0x7f030004;
+        public static final int fragment_favourite_music=0x7f030005;
+        public static final int fragment_local_music=0x7f030006;
+        public static final int local_music_list_item=0x7f030007;
+        public static final int music_list_item=0x7f030008;
     }
     public static final class menu {
         public static final int artist_audio_activity_actions=0x7f0a0000;

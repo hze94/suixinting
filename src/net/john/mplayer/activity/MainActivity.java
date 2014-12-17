@@ -1,7 +1,9 @@
-package net.john.mplayer;
+package net.john.mplayer.activity;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,6 +17,11 @@ import android.view.ViewConfiguration;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import net.john.mplayer.R;
+import net.john.mplayer.R.drawable;
+import net.john.mplayer.R.id;
+import net.john.mplayer.R.layout;
+import net.john.mplayer.R.menu;
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.audio.AudioProvider;
 import net.john.mplayer.fragments.ArtistFragment;
@@ -25,6 +32,7 @@ import net.john.mplayer.viewpager.MyFragmentPagerAdapter;
 import net.john.mplayer.viewpager.MyOnPageChangeListener;
 
 import java.lang.reflect.Field;
+import java.sql.SQLClientInfoException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,12 +46,14 @@ public class MainActivity extends FragmentActivity {
     private MFFragment          mfFragment     = null;
     private ArrayList<Fragment> fragmentList;
     private ArrayList<Audio>    audios, mfAudios;
+    private SQLiteDatabase sqLiteDatabase= null;
 
     private ImageButton         playButton, previousButton, nextButton, heartButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        DBOperation();  //数据库操作
         setContentView(R.layout.activity_main);
         AudioInit();
         setUpActionBar();
@@ -52,6 +62,15 @@ public class MainActivity extends FragmentActivity {
         getOverflowMenu();
 
         setButtonListeners();
+    }
+
+    private void DBOperation() {
+        sqLiteDatabase = openOrCreateDatabase("suixinting.db", Context.MODE_PRIVATE, null);
+        sqLiteDatabase.execSQL("create table mf_audio(id integer primary key ," + " title varchar(255),"
+        + " album varchar(255)," + " artist varchar(255)," + " path varchar(255)," + " displayName varchar(255),"
+                + " mimeType varchar(255)," + " duration integer," + " size integer," + " isFavourite boolean)");
+        
+        
     }
 
     private void AudioInit() {
@@ -143,7 +162,22 @@ public class MainActivity extends FragmentActivity {
         nextButton = (ImageButton) findViewById(R.id.nextButton);
         heartButton = (ImageButton) findViewById(R.id.heartButton);
 
-        playButton.setOnClickListener(new MyClickListener());
+        playButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                boolean isPlaying = lmFragment.isPlaying();
+                if (!isPlaying) {
+                    playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
+                    lmFragment.startAudio();
+                    isPlaying = true;
+                } else {
+                    playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_play_over_video));
+                    lmFragment.pauseAudio();
+                    isPlaying = false;
+                }
+            }
+        });
 
         nextButton.setOnClickListener(new OnClickListener() {
 
@@ -190,37 +224,17 @@ public class MainActivity extends FragmentActivity {
                     nowAudio.setIsFavourite(true);
                     mfAudios.add(nowAudio);
                     lmFragment.setFavouriteStatus(true);
-                    Toast toast=Toast.makeText(getApplicationContext(), "标记为我喜欢", Toast.LENGTH_SHORT); 
+                    Toast toast = Toast.makeText(getApplicationContext(), "标记为我喜欢", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     heartButton.setImageDrawable(getResources().getDrawable(R.drawable.icon_favorite));
                     lmFragment.setFavouriteStatus(false);
                     mfAudios.remove(nowAudio);// ------
-                    Toast toast=Toast.makeText(getApplicationContext(), "取消我喜欢标记", Toast.LENGTH_SHORT); 
+                    Toast toast = Toast.makeText(getApplicationContext(), "取消我喜欢标记", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
         });
-    }
-
-    class MyClickListener implements OnClickListener {
-
-        public MyClickListener() {}
-
-        @Override
-        public void onClick(View v) {
-            boolean isPlaying = lmFragment.isPlaying();
-            if (!isPlaying) {
-                playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_pause_over_video));
-                lmFragment.startAudio();
-                isPlaying = true;
-            } else {
-                playButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_play_over_video));
-                lmFragment.pauseAudio();
-                isPlaying = false;
-            }
-        }
-
     }
 
 }

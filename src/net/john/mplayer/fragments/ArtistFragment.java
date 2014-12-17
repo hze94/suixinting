@@ -10,8 +10,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import net.john.mplayer.ArtistAudioAcitvity;
 import net.john.mplayer.R;
+import net.john.mplayer.activity.ArtistAudioAcitvity;
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.utils.AudioParser;
 
@@ -54,6 +54,7 @@ public class ArtistFragment extends Fragment implements OnItemClickListener{
         bundle.putString("currentArtist", artistNames.get(position));
         intent.putExtras(bundle);
         startActivity(intent);
+        
     }
     
 }

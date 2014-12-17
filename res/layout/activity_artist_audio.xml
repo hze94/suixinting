@@ -1,22 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_artist_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
- 
     <ListView
         android:id="@+id/artist_audio_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    
-       <!-- 
+
+    <!--
     <TextView 
         android:id="@+id/test"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
-         -->
+    -->
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/play_column"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#D46F1F" >
+
+        <!-- 歌名TextView -->
+
+        <net.john.mplayer.activity.AlwaysMarqueeTextView
+            android:id="@+id/title"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="9dp"
+            android:paddingTop="8dp"
+            android:scrollX="2dp"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textSize="15.5sp" />
+
+        <!-- 歌手TextView -->
+
+        <TextView
+            android:id="@+id/artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="9dp"
+            android:paddingTop="27dp"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/heartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#D46F1F"
+            android:paddingRight="9dp"
+            android:src="@drawable/icon_favorite" />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="52dp"
+            android:layout_toLeftOf="@+id/heartButton"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_next" />
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@id/nextButton"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_play_over_video" />
+
+        <ImageButton
+            android:id="@+id/previousButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/playButton"
+            android:background="#D46F1F"
+            android:src="@drawable/ic_action_previous" />
+    </RelativeLayout>
+
+</RelativeLayout>

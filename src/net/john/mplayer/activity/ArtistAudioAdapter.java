@@ -1,4 +1,4 @@
-package net.john.mplayer;
+package net.john.mplayer.activity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import net.john.mplayer.R;
+import net.john.mplayer.R.id;
+import net.john.mplayer.R.layout;
 import net.john.mplayer.audio.Audio;
 
 import java.util.ArrayList;

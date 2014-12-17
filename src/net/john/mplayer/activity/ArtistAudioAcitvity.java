@@ -1,4 +1,4 @@
-package net.john.mplayer;
+package net.john.mplayer.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -7,10 +7,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import net.john.mplayer.R;
+import net.john.mplayer.R.id;
+import net.john.mplayer.R.layout;
+import net.john.mplayer.R.menu;
 import net.john.mplayer.audio.Audio;
 import net.john.mplayer.utils.AudioParser;
 
@@ -24,6 +31,7 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
     private String                            artistName;
     private HashMap<String, ArrayList<Audio>> artistMap;
     private ArrayList<Audio>                  artistAudios;
+    private ImageButton         playButton, previousButton, nextButton, heartButton;
 
     public ArtistAudioAcitvity() {}
 
@@ -34,7 +42,7 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
         setContentView(R.layout.activity_artist_audio);
 
         dataInit();
-
+        
 //         TextView textView = (TextView)findViewById(R.id.test);
 //         textView.setText("artistName: " + artistName + "songs: " +
 //         artistAudios.size());
@@ -84,7 +92,8 @@ public class ArtistAudioAcitvity extends Activity implements OnItemClickListener
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        
     }
+    
 
 }

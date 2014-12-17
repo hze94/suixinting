@@ -1,4 +1,4 @@
-package net.john.mplayer;
+package net.john.mplayer.activity;
 
 import android.content.Context;
 import android.util.AttributeSet;

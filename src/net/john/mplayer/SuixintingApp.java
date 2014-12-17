@@ -8,7 +8,7 @@ import java.io.File;
 public class SuixintingApp extends Application {
 
     public static boolean mIsSleepClockSetting = false;
-    private static String rootPath = "/mymusic";
+    private static String rootPath = "/suixinting";
     public static String lrcPath = "/lrc";
     
     @Override

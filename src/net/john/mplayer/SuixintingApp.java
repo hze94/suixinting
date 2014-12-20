@@ -14,7 +14,6 @@ public class SuixintingApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        
         initPath();
     }
     
